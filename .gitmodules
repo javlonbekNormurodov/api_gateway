@@ -1,0 +1,3 @@
+[submodule "project_protos"]
+	path = project_protos
+	url = github.com/javlonbekNormurodov

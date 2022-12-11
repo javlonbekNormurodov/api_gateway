@@ -1,0 +1,69 @@
+syntax="proto3";
+
+package book_service;
+option go_package="genproto/book_service";
+
+message CreateBookRequest {
+    string name = 1;
+    string description = 2;
+    string author = 3;
+    string created_at = 4;
+    string genre = 5;
+}
+
+message CreateBookResponse {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    string created_at = 4;
+    string genre = 5;
+}
+
+message GetBooksRequest {
+    int32 limit = 1;
+    int32 page = 2;
+}
+
+message GetBooksResponse {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    string created_at = 4;
+    string genre = 5;
+}
+
+message GetBookByIDRequest {
+    string id = 1;
+}
+
+message GetBookByIDResponse {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    string created_at = 4;
+    string genre = 5;
+}
+
+message UpdateBookRequest {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    string created_at = 4;
+    string genre = 5;
+}
+
+message UpdateBookResponse {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    string created_at = 4;
+    string genre = 5;
+}
+
+message DeleteBookRequest {
+    string id = 1;
+}
+
+message DeleteBookResponse {
+    bool success = 1;
+}

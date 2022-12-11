@@ -1,0 +1,65 @@
+syntax="proto3";
+
+package user_service;
+option go_package="genproto/user_service";
+
+message CreateUserRequest {
+    string first_name = 1;
+    string last_name = 2;
+    int32 age = 3;
+    string gender = 4;
+    int32 balance = 5;
+}
+
+message CreateUserResponse {
+    string id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string gender = 4;
+    int32 balance = 5;
+    int32 age = 6;
+}
+
+message GetUsersRequest {
+    int32 limit = 1;
+    int32 page = 2;
+}
+
+message GetUsersResponse {
+    string id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string gender = 4;
+    int32 balance = 5;
+    int32 age = 6;
+}
+
+message GetUserByIDRequest {
+    string id = 1;
+}
+
+message UpdateUserRequest {
+    string id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string gender = 4;
+    int32 balance = 5;
+    int32 age = 6;
+}
+
+message UpdateUserResponse {
+    string id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string gender = 4;
+    int32 balance = 5;
+    int32 age = 6;
+}
+
+message DeleteUserRequest {
+    string id = 1;
+}
+
+message DeleteUserResponse {
+    bool success = 1;
+}

@@ -1,0 +1,90 @@
+basePath: /api/v1
+definitions:
+  http.Response:
+    properties:
+      data:
+        type: object
+      description:
+        type: string
+      status:
+        type: string
+    type: object
+  models.CreateBook:
+    properties:
+      author:
+        type: string
+      created_at:
+        type: string
+      genre:
+        type: string
+      name:
+        type: string
+    type: object
+  models.CreateUser:
+    properties:
+      age:
+        type: integer
+      balance:
+        type: integer
+      first_name:
+        type: string
+      last_name:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a api gateway
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: github.com/javlonbek
+  title: Swagger Example API
+  version: "1.0"
+paths:
+  /v1/app:
+    post:
+      consumes:
+      - application/json
+      description: Create app
+      operationId: create_app
+      parameters:
+      - description: CreateAppRequestBody
+        in: body
+        name: app
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateBook'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: App data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Create app
+      tags:
+      - App
+securityDefinitions:
+  BasicAuth:
+    type: basic
+swagger: "2.0"
